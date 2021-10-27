@@ -8,12 +8,13 @@ artifacts:
   TENSORBOARD_ROOT_LOG_DIR: tensorboard_root_dir
   CHECKPOINTS_DIR: chekpoints
   DATA_DIR: data
+  LOG_DIR: logs
 
 source_download_dirs:
   - ../outside_data/dog
   - ../outside_data/cat
 
 
-local_data_dir:
+local_data_dirs:
   - data/dog
   - data/cat
