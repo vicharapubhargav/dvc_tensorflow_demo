@@ -1,6 +1,6 @@
 stages:
   load_save:
-    cmd: python src/stage_01_load_save.py --config=config/config.yaml
+    cmd: python src/stage_01_load_save.py --config=config/config.yaml 
     deps:
       - src/stage_01_load_save.py
       - src/utils/all_utils.py
@@ -10,7 +10,7 @@ stages:
       - data/cat
 
   prepare_base_model:
-    cmd: python src/stage_02_prepare_base_model.py --config=config/config.yaml
+    cmd: python src/stage_02_prepare_base_model.py --config=config/config.yaml --params=params.yaml
     deps:
       - src/stage_02_prepare_base_model.py
       - src/utils/all_utils.py
@@ -24,3 +24,15 @@ stages:
     outs:
       - artifacts/base_model/updated_VGG16_base_model.h5
       - artifacts/base_model/VGG16_base_model.h5
+
+  prepare_callbacks:
+    cmd: python src/stage_03_prepare_callbacks.py --config=config/config.yaml --params=params.yaml
+    deps:
+      - src/stage_03_prepare_callbacks.py
+      - src/utils/all_utils.py
+      - src/utils/create_callbacks.py
+      - params.yaml
+      - config/config.yaml
+    outs:
+      - artifacts/callbacks/callbacks_cb.cb
+      - artifacts/callbacks/tensorboard_cb.cb

@@ -4,8 +4,8 @@ stages:
     cmd: python src/stage_01_load_save.py --config=config/config.yaml
     deps:
     - path: config/config.yaml
-      md5: 0c3f13c7c323d6a87bb05c2b99bd717c
-      size: 461
+      md5: d4d803344f393df939b8b75721e959b7
+      size: 462
     - path: src/stage_01_load_save.py
       md5: 77889abe840f5310d1bc581975e4540d
       size: 1640
@@ -22,11 +22,11 @@ stages:
       size: 19364112
       nfiles: 174
   prepare_base_model:
-    cmd: python src/stage_02_prepare_base_model.py --config=config/config.yaml
+    cmd: python src/stage_02_prepare_base_model.py --config=config/config.yaml --params=params.yaml
     deps:
     - path: config/config.yaml
-      md5: 0c3f13c7c323d6a87bb05c2b99bd717c
-      size: 461
+      md5: d4d803344f393df939b8b75721e959b7
+      size: 462
     - path: params.yaml
       md5: 0a5217a77b8c5413e2e3029362326210
       size: 125
@@ -49,8 +49,33 @@ stages:
         LEARNING_RATE: 0.001
     outs:
     - path: artifacts/base_model/VGG16_base_model.h5
-      md5: 60c531c6864867310737230a497ccbd7
+      md5: 0f9d8740e243ecc54b967430d1fd949f
       size: 58920272
     - path: artifacts/base_model/updated_VGG16_base_model.h5
-      md5: 8a3fb24964a645805afad98a2b23498f
+      md5: a3f98f61dea37c3d57c049405e4a3104
       size: 59132008
+  prepare_callbacks:
+    cmd: python src/stage_03_prepare_callbacks.py --config=config/config.yaml --params=params.yaml
+    deps:
+    - path: config/config.yaml
+      md5: d4d803344f393df939b8b75721e959b7
+      size: 462
+    - path: params.yaml
+      md5: 0a5217a77b8c5413e2e3029362326210
+      size: 125
+    - path: src/stage_03_prepare_callbacks.py
+      md5: 9afb11c7d42d96c6541f4582bac9456f
+      size: 1728
+    - path: src/utils/all_utils.py
+      md5: 0fe9bcc4134f62977696fcc10a5dd5a5
+      size: 998
+    - path: src/utils/create_callbacks.py
+      md5: a00c8fd1179c5047982418c8f34493d2
+      size: 1125
+    outs:
+    - path: artifacts/callbacks/callbacks_cb.cb
+      md5: 05f991ff259edba1cf430cf63aeaa80e
+      size: 888
+    - path: artifacts/callbacks/tensorboard_cb.cb
+      md5: 260b9317b8d876d1e15e852bcaf839a0
+      size: 665

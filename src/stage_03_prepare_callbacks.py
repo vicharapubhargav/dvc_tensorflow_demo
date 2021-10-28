@@ -3,7 +3,6 @@ from src.utils.create_callbacks import create_and_save_tensorboard_callback,crea
 import argparse
 import os
 import logging
-import io
 
 log_string = "[%(asctime)s: %(levelname)s: %(module)s]: %(message)s"
 logs_dir = "Logs"
