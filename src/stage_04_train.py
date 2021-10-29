@@ -1,6 +1,7 @@
 from src.utils.all_utils import read_yaml, create_directory
 from src.utils.model import load_model
 from src.utils.create_callbacks import get_callbacks
+from src.utils.data_management import train_valid_generator
 import argparse
 import os
 import logging
@@ -28,6 +29,12 @@ def train(config_path,params_path):
 
     call_backs_dir = os.path.join(artifacts_dir,artifacts["CALLBACKS_DIR"])
     call_backs = get_callbacks(call_backs_dir)
+
+    train_generator,valid_generator = train_valid_generator(data_dir = artifacts["DATA_DIR"],
+                                            IMAGE_SIZE = params["IMAGE_SIZE"],
+                                            BATCH_SIZE = params["BATCH_SIZE"],
+                                            VALIDATION_SPLIT = params["VALIDATION_SPLIT"],
+                                            data_augmentation = params["AUGMENTATION"])
 
    
 
