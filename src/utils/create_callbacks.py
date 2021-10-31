@@ -22,7 +22,7 @@ def create_and_save_checkpoint_callback(checkpoint_dir,callbacks_dir):
     checkpoint_file_path = os.path.join(checkpoint_dir,"Ckpt_model.h5")
     checkpoint_callbacks = tf.keras.callbacks.ModelCheckpoint(filepath =checkpoint_file_path,save_best_only=True) 
 
-    checkpoint_callbacks_filepath = os.path.join(callbacks_dir,"callbacks_cb.cb")
+    checkpoint_callbacks_filepath = os.path.join(callbacks_dir,"checkpoint_cb.cb")
     joblib.dump(checkpoint_callbacks,checkpoint_callbacks_filepath)
     logging.info(f"Checkpoint callback saved at {checkpoint_callbacks_filepath}")
 
