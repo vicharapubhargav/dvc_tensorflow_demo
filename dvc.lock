@@ -123,7 +123,15 @@ stages:
         - 224
         - 3
     outs:
-    - path: artifacts/model
-      md5: 2806e1ad388d0814f2f34c94f3a7188d.dir
+    - path: artifacts/checkpoints
+      md5: 2e463a4ae0514f31defa15b935cf21fb.dir
       size: 59134488
       nfiles: 1
+    - path: artifacts/model
+      md5: 3f1e337e7280e0261d0e302aafe9b9d8.dir
+      size: 59134488
+      nfiles: 1
+    - path: artifacts/tensorboard_root_dir
+      md5: 2f75c51ec5d2e72f8828ca77c5bb195b.dir
+      size: 124555
+      nfiles: 10

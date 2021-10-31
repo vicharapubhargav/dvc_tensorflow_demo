@@ -57,3 +57,5 @@ stages:
       - AUGMENTATION
     outs:
       - artifacts/model
+      - artifacts/checkpoints
+      - artifacts/tensorboard_root_dir 

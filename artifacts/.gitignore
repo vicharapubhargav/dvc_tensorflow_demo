@@ -1,2 +1,3 @@
 /model
-/checkpoints/Ckpt_model.h5
+/checkpoints
+/tensorboard_root_dir
